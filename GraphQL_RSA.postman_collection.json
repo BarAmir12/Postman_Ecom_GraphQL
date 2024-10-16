@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "e65f173c-ed08-46ab-b263-c92f17098c11",
+		"name": "GraphQL_RSA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38552175",
+		"_collection_link": "https://api-team-2843.postman.co/workspace/E2E-Flows~7cda32eb-9683-4f99-ba03-6547b0e2dcd4/collection/38552175-e65f173c-ed08-46ab-b263-c92f17098c11?action=share&source=collection_link&creator=38552175"
+	},
+	"item": [
+		{
+			"name": "Mutations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation($locationName: String!,$characterName: String!,$episodeName: String!)\r\n{\r\n  createLocation(location:\r\n  {\r\n    name:$locationName,\r\n    type:\"Southzone\",\r\n    dimension:\"234\"\r\n  })\r\n  {\r\n    id\r\n  }\r\n  \r\n  createCharacter(character:{name:$characterName,type:\"Macho\",status:\"dead\",species:\"fantasy\",gender:\"male\",image:\"png\",originId: 14648,locationId:14648})\r\n  {\r\n    id\r\n  }\r\n  createEpisode(episode:{name:$episodeName,air_date:\"1950 June\",episode:\"Prime\"})\r\n  {\r\n    id\r\n  }\r\n  deleteLocations(locationIds:[14113])\r\n  {\r\n    locationsDeleted\r\n  }\r\n}",
+						"variables": "{\r\n  \"locationName\":\"Newzealand\",\r\n  \"characterName\":\"Baskin Robin\",\r\n  \"episodeName\":\"Manifest\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/gq/graphql",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"gq",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query\r\n{\r\n  character(characterId: 9847)\r\n  {\r\n    name\r\n    gender\r\n    status\r\n    type\r\n    id\r\n  }\r\n  location(locationId: 9847)\r\n  {\r\n    name\r\n    dimension\r\n  }\r\n  episode(episodeId:9847)\r\n  {\r\n    name\r\n    air_date\r\n    episode\r\n  }\r\n  \r\n  characters(filters:{name: \"Rahul\"} )\r\n  {\r\n  \tinfo{\r\n      count\r\n    }\r\n    result\r\n    {\r\n      id\r\n    }\r\n  }\r\n  episodes(filters:{episode:\"hulu\"})\r\n  {\r\n    result\r\n    {\r\n      id\r\n      name\r\n      air_date\r\n      episode\r\n    }\r\n  }\r\n  \r\n  \r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/gq/graphql",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"gq",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
